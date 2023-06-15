@@ -1,0 +1,7 @@
+
+<% @events.each do |event| %>
+  <%= render event %>
+  <%= link_to "view event", event_path(event)  %>
+<% end %>
+
+<%= link_to 'manage my event', new_event_path  %>

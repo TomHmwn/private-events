@@ -1,0 +1,6 @@
+<%= current_user.email %>
+<%= render "form", event: @event %>
+
+<%= link_to 'my events', show_my_events_path(user_id: current_user.id)%>
+<%= link_to 'my invites', show_my_invitations_path(user_id: current_user.id) %>
+<%= link_to 'manage my hosted events', show_my_hosted_events_path(user_id: current_user.id)  %>

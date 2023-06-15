@@ -1,0 +1,17 @@
+<h1>future hosted event</h1>
+<% @future_events.each do |fevent| %>
+  <%= render fevent %>
+  <% fevent.attendees.each do |attendee| %>
+    <%= attendee.email %>
+  <% end %>
+  <%= link_to "view event", event_path(fevent)  %>
+<% end %>
+
+<h1>past hosted event</h1>
+<% @past_events.each do |pevent| %>
+  <%= render pevent %>
+  <% pevent.attendees.each do |attendee| %>
+    <%= attendee.email %>
+  <% end %>
+  <%= link_to "view event", event_path(pevent)  %>
+<% end %>

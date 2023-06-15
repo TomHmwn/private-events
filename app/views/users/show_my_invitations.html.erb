@@ -1,0 +1,8 @@
+<% @awaiting_response.each do |invites| %>
+  <p><%= "#{invites.attended_event.creator.email} invites you to #{invites.attended_event.name}" %></p>
+  <p><%= "invitation status: #{Rsvp.invitations[invites.invitation]}" %></p>
+  <% if invites.invited? %>
+    <%= link_to "Accept", accept_invite_path(invites), data: { turbo_method: "patch" } %>
+    <%= link_to "Decline", cancel_rsvp_path(user_id: current_user.id, event_id: invites.attended_event.id), data: { turbo_method: "delete" } %>
+  <% end %>
+<% end %>

@@ -1,0 +1,11 @@
+<h1>future events</h1>
+<% @future_events.each do |fevent| %>
+  <%= render fevent %>
+  <%= link_to "view event", event_path(fevent)  %>
+<% end %>
+
+<h1>past events</h1>
+<% @past_events.each do |pevent| %>
+  <%= render pevent %>
+  <%= link_to "view event", event_path(pevent)  %>
+<% end %>

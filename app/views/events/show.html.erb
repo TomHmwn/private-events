@@ -1,0 +1,20 @@
+<%= render @event %>
+<%= link_to 'home',events_path  %>
+
+<h1>Attendees</h1>
+
+<% if @event.creator == current_user %>
+  <%= link_to 'edit event', edit_event_path(@event) %>
+  <%= link_to 'delete event', event_path(@event), data: {turbo_method:"delete"} %>
+  <%= link_to 'invite people', invite_path(@event)  %>
+<% else %>
+  <% if current_user && @event.attendees.include?(current_user) %>
+    <%= link_to 'leave event', cancel_rsvp_path(user_id: current_user.id, event_id: @event.id), data: {turbo_method:"delete"} %>
+  <% end %>
+<% end %>
+
+<% @event.attendees.each do |attendee| %>
+  <ul>
+    <li><%= attendee.email %></li>
+  </ul>
+<% end %>

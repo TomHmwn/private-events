@@ -1,0 +1,10 @@
+<nav>
+  <h1>private-event</h1>
+  <% if user_signed_in? %>
+    <h1>welcome <%= current_user.email %></h1>
+    <%= link_to 'sign out', destroy_user_session_path, data: {"turbo_method": :delete} %>
+    <% else %>
+      <%= link_to 'sign in', new_user_session_path %>
+      <%= link_to 'sign up', new_user_registration_path %>
+  <% end %>
+</nav>
