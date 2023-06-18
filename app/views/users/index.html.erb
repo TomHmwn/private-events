@@ -1,0 +1,4 @@
+<% @user.each do |user| %>
+  <%= user.email %>
+  <%= link_to 'invite', new_rsvp_path(user_id: user.id, event: @event.id), data: {turbo_method: :post}  %>
+<% end %>
